@@ -1,5 +1,7 @@
 # Pretty Exceptions [![version][npm-version]][npm-url] [![License][license-image]][license-url]
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ahmadnassri/pretty-exceptions.svg)](https://greenkeeper.io/)
+
 > Pretty and more helpful uncaught exceptions, automatically.
 
 [![Downloads][npm-downloads]][npm-url]
