@@ -99,7 +99,7 @@ process.on('uncaughtException', function (error) {
         console.error(chalk.gray(PREFIX + ' │'))
 
         preview.forEach((item, y) => {
-          if (item.trim() !== '') {
+          if (item && item.trim() !== '') {
 
             if (item === line) {
               console.error(chalk.gray(util.format(`${PREFIX} ${lastFrame ? '└' : '├'}╌╌╌%s╮`, '╌'.repeat(frame.columnNumber - whiteSpaceBefore))))
