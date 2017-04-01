@@ -119,7 +119,7 @@ $ node PRETTY_EXCEPTIONS_NATIVE=true --require pretty-exceptions my-app.js
 ```
 Error: oh no! this is an error message!
  │
- ├─┬╼ /home/ahmad/Projects/ahmadnassri/test.js
+ ├─┬╼ /path/to/my-app.js
  │ │
  │ ├──╼ someOtherFunction @ line 2:27
  │ ├──╼ someFunction @ line 6:3
@@ -158,7 +158,7 @@ $ node PRETTY_EXCEPTIONS_SOURCE=true PRETTY_EXCEPTIONS_NATIVE=true --require pre
 ```
 Error: oh no! this is an error message!
  │
- ├─┬╼ /home/ahmad/Projects/ahmadnassri/test.js
+ ├─┬╼ /path/to/my-app.js
  │ │
  │ ├──╼ someOtherFunction @ line 2
  │ │
