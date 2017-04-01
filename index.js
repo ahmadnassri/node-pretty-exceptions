@@ -1,3 +1,5 @@
+'use strict'
+
 const chalk = require('chalk')
 const ErrorStackParser = require('error-stack-parser')
 const util = require('util')
