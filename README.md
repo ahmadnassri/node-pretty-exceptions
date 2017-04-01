@@ -6,7 +6,7 @@
 [![Dependency Status][dependencyci-image]][dependencyci-url]
 [![Dependencies][david-image]][david-url]
 
-![](./screenshots/source-native.png)
+![](./screenshots/example.png)
 
 ## Install
 

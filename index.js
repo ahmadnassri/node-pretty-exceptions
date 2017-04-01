@@ -30,6 +30,12 @@ process.on('uncaughtException', function (error) {
   console.error()
   console.error('%s%s %s', chalk.bold.white.bgRed(error.constructor.name), chalk.magenta(':'), error.message)
 
+  // display all error properties
+  for (let property in error) {
+    if (property === 'stack') continue
+    console.error(' %s %s: %j', chalk.gray('├─╼'), chalk.red(property), error[property])
+  }
+
   let filenames = Object.keys(grouped)
 
   // detect native / readable files
