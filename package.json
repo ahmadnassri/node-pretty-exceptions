@@ -20,7 +20,10 @@
     "node": ">=4"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "source.js",
+    "native.js",
+    "source-native.js"
   ],
   "bugs": {
     "url": "https://github.com/ahmadnassri/pretty-exceptions/issues"

@@ -5,7 +5,8 @@ const ErrorStackParser = require('error-stack-parser')
 const fs = require('fs')
 const util = require('util')
 
-const showNative = process.env.PRETTY_EXCEPTIONS_NATIVE
+const showNative = process.env.PRETTY_EXCEPTIONS_NATIVE === 'true'
+const showSource = process.env.PRETTY_EXCEPTIONS_SOURCE === 'true'
 
 process.on('uncaughtException', function (error) {
   // detect errors
@@ -79,12 +80,13 @@ process.on('uncaughtException', function (error) {
     frames.forEach((frame, n) => {
       const lastFrame = n + 1 >= frames.length
 
-      const symbol = frames.native && !lastFrame ? '├' : frames.native ? '└' : '├──╼'
+      const symbol = (lastFrame && !showSource) || (lastFrame && frames.native) ? '└──╼' : '├──╼'
 
       // frame details
-      console.error('%s %s %s', chalk.gray(`${PREFIX} ${symbol}`), chalk.yellow(frame.functionName), chalk.gray.italic('@ line:'), chalk.blue.italic(frame.lineNumber))
+      const lineDetails = chalk.blue.italic(frame.lineNumber) + (!showSource ? chalk.gray.italic(':') + chalk.cyan.italic(frame.columnNumber) : '')
+      console.error('%s %s %s%s', chalk.gray(`${PREFIX} ${symbol}`), chalk.yellow(frame.functionName), chalk.gray.italic('@ line '), lineDetails)
 
-      if (lines) {
+      if (showSource && lines) {
         const line = lines[frame.lineNumber - 1]
         const before = lines[frame.lineNumber - 2]
         const after = lines[frame.lineNumber]

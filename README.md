@@ -6,7 +6,7 @@
 [![Dependency Status][dependencyci-image]][dependencyci-url]
 [![Dependencies][david-image]][david-url]
 
-![](./screenshot.png)
+![](./screenshots/source-native.png)
 
 ## Install
 
@@ -16,9 +16,189 @@ npm install --only=production --global pretty-exceptions
 
 ## Usage
 
+### CLI _(preferred)_
+
+This is the preferred approach to best avoid mistakingly including into production builds
+
+```shell
+$ node --require pretty-exceptions my-app.js
+
+# alternative modes (see below):
+$ node --require pretty-exceptions/source my-app.js
+```
+
+### API _(if you really must!)_
+
+Require at the top-most entry point of your app:
+
+```js
+require('pretty-exceptions')
+
+// alternative modes (see below):
+require('pretty-exceptions/source-native')
+```
+
+## Modes
+
+### Default
+
 ```shell
 $ node --require pretty-exceptions my-app.js
 ```
+
+###### Output
+
+```
+Error: oh no! this is an error message!
+ │
+ └┬╼ /path/to/my-app.js
+  │
+  ├──╼ someOtherFunction @ line 2:27
+  ├──╼ someFunction @ line 6:3
+  └──╼ Object.<anonymous> @ line 9:1
+```
+
+###### Demo
+
+> Colors will vary based on your local terminal configuration
+
+![](./screenshots/default.png)
+
+### View Source
+
+```shell
+$ node --require pretty-exceptions/source my-app.js
+# OR
+$ node PRETTY_EXCEPTIONS_SOURCE=true --require pretty-exceptions my-app.js
+```
+
+###### Output
+
+```
+Error: oh no! this is an error message!
+ │
+ └┬╼ /path/to/my-app.js
+  │
+  ├──╼ someOtherFunction @ line 2
+  │
+  │    function someOtherFunction () {
+  ├╌╌╌╌╌╌╌╌╌╌╮
+  │    throw new Error('oh no! this is an error message!')
+  │    }
+  │
+  ├──╼ someFunction @ line 6
+  │
+  │    function someFunction () {
+  ├╌╌╌╌╮
+  │    someOtherFunction()
+  │    }
+  │
+  ├──╼ Object.<anonymous> @ line 9
+  │
+  └╌╌╌╌╮
+       someFunction()
+```
+
+###### Demo
+
+> Colors will vary based on your local terminal configuration
+
+![](./screenshots/source.png)
+
+
+### View Native Calls
+
+```shell
+$ node --require pretty-exceptions/native my-app.js
+# OR
+$ node PRETTY_EXCEPTIONS_NATIVE=true --require pretty-exceptions my-app.js
+```
+
+###### Output
+
+```
+Error: oh no! this is an error message!
+ │
+ ├─┬╼ /home/ahmad/Projects/ahmadnassri/test.js
+ │ │
+ │ ├──╼ someOtherFunction @ line 2:27
+ │ ├──╼ someFunction @ line 6:3
+ │ └──╼ Object.<anonymous> @ line 9:1
+ │
+ ├─┬╼ module.js
+ │ │
+ │ ├──╼ Module._compile @ line 571:32
+ │ ├──╼ Object.Module._extensions..js @ line 580:10
+ │ ├──╼ Module.load @ line 488:32
+ │ ├──╼ tryModuleLoad @ line 447:12
+ │ ├──╼ Function.Module._load @ line 439:3
+ │ └──╼ Module.runMain @ line 605:10
+ │
+ └┬╼ bootstrap_node.js
+  │
+  └──╼ run @ line 423:7
+```
+
+###### Demo
+
+> Colors will vary based on your local terminal configuration
+
+![](./screenshots/native.png)
+
+### View Source & Native
+
+```shell
+$ node --require pretty-exceptions/source-native my-app.js
+# OR
+$ node PRETTY_EXCEPTIONS_SOURCE=true PRETTY_EXCEPTIONS_NATIVE=true --require pretty-exceptions my-app.js
+```
+
+###### Output
+
+```
+Error: oh no! this is an error message!
+ │
+ ├─┬╼ /home/ahmad/Projects/ahmadnassri/test.js
+ │ │
+ │ ├──╼ someOtherFunction @ line 2
+ │ │
+ │ │    function someOtherFunction () {
+ │ ├╌╌╌╌╌╌╌╌╌╌╮
+ │ │    throw new Error('oh no! this is an error message!')
+ │ │    }
+ │ │
+ │ ├──╼ someFunction @ line 6
+ │ │
+ │ │    function someFunction () {
+ │ ├╌╌╌╌╮
+ │ │    someOtherFunction()
+ │ │    }
+ │ │
+ │ ├──╼ Object.<anonymous> @ line 9
+ │ │
+ │ └╌╌╌╌╮
+ │      someFunction()
+ │ 
+ │
+ ├─┬╼ module.js
+ │ │
+ │ ├──╼ Module._compile @ line 571
+ │ ├──╼ Object.Module._extensions..js @ line 580
+ │ ├──╼ Module.load @ line 488
+ │ ├──╼ tryModuleLoad @ line 447
+ │ ├──╼ Function.Module._load @ line 439
+ │ └──╼ Module.runMain @ line 605
+ │
+ └┬╼ bootstrap_node.js
+  │
+  └──╼ run @ line 423
+```
+
+###### Demo
+
+> Colors will vary based on your local terminal configuration
+
+![](./screenshots/source-native.png)
 
 ---
 > :copyright: [ahmadnassri.com](https://www.ahmadnassri.com/) · 
