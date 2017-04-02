@@ -27,6 +27,20 @@ $ node --require pretty-exceptions my-app.js
 $ node --require pretty-exceptions/source my-app.js
 ```
 
+#### Pro Tip:
+
+Use Bash Aliases for less typing
+
+```shell
+# make a special alias for debugging
+alias node-ex='node --require pretty-exceptions'
+
+# or even better:
+alias node='node --require pretty-exceptions/source'
+```
+
+> To make this persistent, you need to add this into your `~/.bashrc` _(or `~/.bash_profile`)_.
+
 ### API _(if you really must!)_
 
 Require at the top-most entry point of your app:
