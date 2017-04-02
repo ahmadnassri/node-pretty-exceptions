@@ -69,7 +69,7 @@ Error: oh no! this is an error message!
 ```shell
 $ node --require pretty-exceptions/source my-app.js
 # OR
-$ node PRETTY_EXCEPTIONS_SOURCE=true --require pretty-exceptions my-app.js
+$ PRETTY_EXCEPTIONS_SOURCE=true node --require pretty-exceptions my-app.js
 ```
 
 ###### Output
@@ -111,7 +111,7 @@ Error: oh no! this is an error message!
 ```shell
 $ node --require pretty-exceptions/native my-app.js
 # OR
-$ node PRETTY_EXCEPTIONS_NATIVE=true --require pretty-exceptions my-app.js
+$ PRETTY_EXCEPTIONS_NATIVE=true node --require pretty-exceptions my-app.js
 ```
 
 ###### Output
@@ -150,7 +150,7 @@ Error: oh no! this is an error message!
 ```shell
 $ node --require pretty-exceptions/source-native my-app.js
 # OR
-$ node PRETTY_EXCEPTIONS_SOURCE=true PRETTY_EXCEPTIONS_NATIVE=true --require pretty-exceptions my-app.js
+$ PRETTY_EXCEPTIONS_SOURCE=true node PRETTY_EXCEPTIONS_NATIVE=true --require pretty-exceptions my-app.js
 ```
 
 ###### Output
