@@ -38,6 +38,13 @@ require('pretty-exceptions')
 require('pretty-exceptions/source-native')
 ```
 
+#### Environment Variables
+
+env                        | default | description            
+-------------------------- | ------- | -----------------------
+`PRETTY_EXCEPTIONS_SOURCE` | `false` | enable Source View mode
+`PRETTY_EXCEPTIONS_NATIVE` | `false` | enable Native View mode
+
 ## Modes
 
 ### Default
@@ -150,7 +157,7 @@ Error: oh no! this is an error message!
 ```shell
 $ node --require pretty-exceptions/source-native my-app.js
 # OR
-$ PRETTY_EXCEPTIONS_SOURCE=true node PRETTY_EXCEPTIONS_NATIVE=true --require pretty-exceptions my-app.js
+$ PRETTY_EXCEPTIONS_SOURCE=true PRETTY_EXCEPTIONS_NATIVE=true node --require pretty-exceptions my-app.js
 ```
 
 ###### Output
