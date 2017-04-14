@@ -40,19 +40,19 @@ process.on('uncaughtException', function (error) {
 
   // detect native / readable files
   filenames.forEach(filename => {
-    let stats = {
-      accessable: false,
+    let meta = {
+      source: false,
       native: false
     }
 
+    // read file content
     try {
-      stats.accessable = fs.accessSync(filename, fs.constants.F_OK | fs.constants.R_OK)
+      meta.source = fs.readFileSync(filename)
     } catch (err) {
-      // file inaccessable, likely native
-      stats.native = true
+      if (err.errno === -2) meta.native = true
     }
 
-    Object.assign(grouped[filename], stats)
+    Object.assign(grouped[filename], meta)
   })
 
   if (!showNative) {
@@ -67,14 +67,9 @@ process.on('uncaughtException', function (error) {
 
     const PREFIX = lastFile ? ' ' : ' │'
 
-    let lines = false
+    let lines = frames.source ? frames.source.toString().split(/\n|\r\n/) : false
 
     console.error(chalk.gray(' │'))
-
-    if (frames.accessable !== false) {
-      // read file content
-      lines = fs.readFileSync(filename).toString().split(/\n|\r\n/)
-    }
 
     // call stack frame
     console.error(' %s %s', chalk.gray(lastFile ? '└┬╼' : '├─┬╼'), chalk.green(filename))
@@ -111,7 +106,7 @@ process.on('uncaughtException', function (error) {
               console.error(chalk.gray(util.format(`${PREFIX} ${lastFrame ? '└' : '├'}╌╌╌%s╮`, '╌'.repeat(frame.columnNumber - whiteSpaceBefore))))
             }
 
-            console.error(chalk.gray(`${PREFIX} ${lastFrame ? ' ' : '│'}    ${item.trim()}`))
+            console.error(chalk.gray(`${PREFIX} ${lastFrame && item !== before ?  ' ' : '│'}    ${item.trim()}`))
           }
 
           if (y + 1 >= preview.length) {
