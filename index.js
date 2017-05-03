@@ -20,6 +20,15 @@ process.on('uncaughtException', function (error) {
   // parse the stack trace (if any)
   const trace = ErrorStackParser.parse(error)
 
+  // no trace given for top-level
+  const initial = error.stack.split('\n').shift().split(':')
+
+  trace.unshift({
+    lineNumber: initial[1],
+    fileName: initial[0],
+    functionName: '<root>'
+  })
+
   // group by filename
   const grouped = trace.reduce((grouped, frame) => {
     (grouped[frame.fileName] = grouped[frame.fileName] || []).push(frame);
