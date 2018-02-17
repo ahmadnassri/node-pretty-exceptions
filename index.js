@@ -8,7 +8,10 @@ const util = require('util')
 const showNative = process.env.PRETTY_EXCEPTIONS_NATIVE === 'true'
 const showSource = process.env.PRETTY_EXCEPTIONS_SOURCE === 'true'
 
-process.on('uncaughtException', function (error) {
+process.on('unhandledRejection', handler)
+process.on('uncaughtException', handler)
+
+function handler (error) {
   // detect errors
   const isError = Object.prototype.toString.call(error) === '[object Error]' || error instanceof Error
 

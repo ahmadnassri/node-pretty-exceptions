@@ -8,23 +8,31 @@
 
 ![](./screenshots/example.png)
 
-## Install
-
-```bash
-npm install --only=production --global pretty-exceptions
-```
-
 ## Usage
 
 ### CLI _(preferred)_
 
 This is the preferred approach to best avoid mistakingly including into production builds
 
+1. setup your [`NODE_PATH`][node-path] environment variable
+
 ```shell
-$ node --require pretty-exceptions my-app.js
+export NODE_PATH="$NODE_PATH:$(npm root -g)"
+```
+
+2. install `pretty-exceptions`
+
+```shell
+npm install --production --global pretty-exceptions
+```
+
+3. run your application with the [`--require`][node-require] flag:
+
+```shell
+node --require pretty-exceptions my-app.js
 
 # alternative modes (see below):
-$ node --require pretty-exceptions/source my-app.js
+node --require pretty-exceptions/source my-app.js
 ```
 
 #### Pro Tip:
@@ -239,3 +247,6 @@ Error: oh no! this is an error message!
 
 [dependencyci-url]: https://dependencyci.com/github/ahmadnassri/pretty-exceptions
 [dependencyci-image]: https://dependencyci.com/github/ahmadnassri/pretty-exceptions/badge?style=flat-square
+
+[node-path]: https://nodejs.org/docs/latest/api/modules.html#modules_loading_from_the_global_folders
+[node-require]: https://nodejs.org/api/cli.html#cli_r_require_module
