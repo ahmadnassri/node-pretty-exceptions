@@ -1,10 +1,6 @@
-# Pretty Exceptions [![version][npm-version]][npm-url] [![License][license-image]][license-url]
+# Pretty Exceptions [![version][npm-version]][npm-url] [![License][license-image]][license-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][codeclimate-coverage]][codeclimate-url]
 
 > Pretty and more helpful uncaught exceptions, automatically.
-
-[![Downloads][npm-downloads]][npm-url]
-[![Dependency Status][dependencyci-image]][dependencyci-url]
-[![Dependencies][david-image]][david-url]
 
 ![](./screenshots/example.png)
 
@@ -47,7 +43,7 @@ export NODE_PATH="$NODE_PATH:$(npm root -g)"
 2. install `pretty-exceptions`
 
 ```shell
-npm install --production --global pretty-exceptions
+npm install --global pretty-exceptions
 ```
 
 3. run your application with the [`--require`][node-require] flag:
@@ -264,19 +260,19 @@ Error: oh no! this is an error message!
 
 [license-image]: https://img.shields.io/github/license/ahmadnassri/pretty-exceptions.svg?style=flat-square
 
+[travis-url]: https://travis-ci.org/ahmadnassri/pretty-exceptions
+
+[travis-image]: https://img.shields.io/travis/ahmadnassri/pretty-exceptions.svg?style=flat-square
+
 [npm-url]: https://www.npmjs.com/package/pretty-exceptions
 
 [npm-version]: https://img.shields.io/npm/v/pretty-exceptions.svg?style=flat-square
 
 [npm-downloads]: https://img.shields.io/npm/dm/pretty-exceptions.svg?style=flat-square
 
-[david-url]: https://david-dm.org/ahmadnassri/pretty-exceptions
+[codeclimate-url]: https://codeclimate.com/github/ahmadnassri/pretty-exceptions
 
-[david-image]: https://img.shields.io/david/ahmadnassri/pretty-exceptions.svg?style=flat-square
-
-[dependencyci-url]: https://dependencyci.com/github/ahmadnassri/pretty-exceptions
-
-[dependencyci-image]: https://dependencyci.com/github/ahmadnassri/pretty-exceptions/badge?style=flat-square
+[codeclimate-coverage]: https://api.codeclimate.com/v1/badges/bd7f0315bfb12cf3c8e8/test_coverage?style=flat-square
 
 [node-path]: https://nodejs.org/docs/latest/api/modules.html#modules_loading_from_the_global_folders
 
