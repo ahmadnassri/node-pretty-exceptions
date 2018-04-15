@@ -17,9 +17,10 @@
     "error"
   ],
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   },
   "files": [
+    "lib",
     "index.js",
     "source.js",
     "native.js",
@@ -29,10 +30,18 @@
     "url": "https://github.com/ahmadnassri/pretty-exceptions/issues"
   },
   "scripts": {
-    "lint": "standard && echint"
+    "pretest": "npm run test:codeclimate",
+    "test": "npm run test:tap",
+    "test:codeclimate": ".scripts/codeclimate analyze",
+    "test:tap": "tap test --coverage-report=lcov --no-browser",
+    "coverage": "opener coverage/lcov-report/index.html"
   },
   "dependencies": {
-    "chalk": "^2.3.1",
-    "error-stack-parser": "^2.0.0"
+    "chalk": "^2.3.2",
+    "error-stack-parser": "^2.0.1",
+    "strip-ansi": "^4.0.0"
+  },
+  "devDependencies": {
+    "tap": "^11.1.4"
   }
 }

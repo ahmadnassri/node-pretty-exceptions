@@ -1,4 +1,10 @@
-process.env.PRETTY_EXCEPTIONS_NATIVE = 'false'
-process.env.PRETTY_EXCEPTIONS_SOURCE = 'true'
+const cli = require('./lib/cli')
 
-require('./index')
+const options = {
+  native: false,
+  source: true,
+  color: true
+}
+
+process.on('unhandledRejection', error => cli(error, options))
+process.on('uncaughtException', error => cli(error, options))

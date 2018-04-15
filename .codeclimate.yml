@@ -1,6 +1,9 @@
 version: "2"
 
 plugins:
+  structure:
+    enabled: false
+
   duplication:
     enabled: true
     config:
@@ -16,9 +19,6 @@ plugins:
     enabled: true
 
   nodesecurity:
-    enabled: true
-
-  markdownlint:
     enabled: true
 
   editorconfig:

@@ -10,6 +10,30 @@
 
 ## Usage
 
+### Library
+
+```js
+const pretty = require('pretty-exceptions/lib')
+
+const options = {
+  source: true,
+  native: true,
+  color: true,
+  cwd: process.cwd()
+}
+
+const output = pretty(new Error('foo'), options)
+```
+
+#### `options`
+
+name       | type      | required | default         | description                             
+---------- | --------- | -------- | --------------- | ----------------------------------------
+**source** | `Boolean` | ✖        | `false`         | Show source code in stack               
+**native** | `Boolean` | ✖        | `false`         | Show native code in stack               
+**color**  | `Boolean` | ✖        | `true`          | use ansi colors                         
+**cwd**    | `String`  | ✖        | `process.cwd()` | resolve file names relative to this path
+
 ### CLI _(preferred)_
 
 This is the preferred approach to best avoid mistakingly including into production builds
@@ -49,7 +73,15 @@ alias node='node --require pretty-exceptions/source'
 
 > To make this persistent, you need to add this into your `~/.bashrc` _(or `~/.bash_profile`)_.
 
-### API _(if you really must!)_
+#### Environment Variables
+
+env                        | default | description              
+-------------------------- | ------- | -------------------------
+`PRETTY_EXCEPTIONS_SOURCE` | `0`     | Show source code in stack
+`PRETTY_EXCEPTIONS_NATIVE` | `0`     | Show native code in stack
+`PRETTY_EXCEPTIONS_COLOR`  | `1`     | use ansi colors          
+
+### Source _(if you really must!)_
 
 Require at the top-most entry point of your app:
 
@@ -59,13 +91,6 @@ require('pretty-exceptions')
 // alternative modes (see below):
 require('pretty-exceptions/source-native')
 ```
-
-#### Environment Variables
-
-env                        | default | description            
--------------------------- | ------- | -----------------------
-`PRETTY_EXCEPTIONS_SOURCE` | `false` | enable Source View mode
-`PRETTY_EXCEPTIONS_NATIVE` | `false` | enable Native View mode
 
 ## Modes
 
@@ -77,7 +102,7 @@ $ node --require pretty-exceptions my-app.js
 
 ###### Output
 
-```
+```plain
 Error: oh no! this is an error message!
  │
  └┬╼ /path/to/my-app.js
@@ -98,12 +123,12 @@ Error: oh no! this is an error message!
 ```shell
 $ node --require pretty-exceptions/source my-app.js
 # OR
-$ PRETTY_EXCEPTIONS_SOURCE=true node --require pretty-exceptions my-app.js
+$ PRETTY_EXCEPTIONS_SOURCE=1 node --require pretty-exceptions my-app.js
 ```
 
 ###### Output
 
-```
+```plain
 Error: oh no! this is an error message!
  │
  └┬╼ /path/to/my-app.js
@@ -134,7 +159,6 @@ Error: oh no! this is an error message!
 
 ![](./screenshots/source.png)
 
-
 ### View Native Calls
 
 ```shell
@@ -145,7 +169,7 @@ $ PRETTY_EXCEPTIONS_NATIVE=true node --require pretty-exceptions my-app.js
 
 ###### Output
 
-```
+```plain
 Error: oh no! this is an error message!
  │
  ├─┬╼ /path/to/my-app.js
@@ -179,12 +203,12 @@ Error: oh no! this is an error message!
 ```shell
 $ node --require pretty-exceptions/source-native my-app.js
 # OR
-$ PRETTY_EXCEPTIONS_SOURCE=true PRETTY_EXCEPTIONS_NATIVE=true node --require pretty-exceptions my-app.js
+$ PRETTY_EXCEPTIONS_SOURCE=1 PRETTY_EXCEPTIONS_NATIVE=1 node --require pretty-exceptions my-app.js
 ```
 
 ###### Output
 
-```
+```plain
 Error: oh no! this is an error message!
  │
  ├─┬╼ /path/to/my-app.js
@@ -230,23 +254,30 @@ Error: oh no! this is an error message!
 ![](./screenshots/source-native.png)
 
 ---
-> :copyright: [ahmadnassri.com](https://www.ahmadnassri.com/) · 
-> License: [ISC][license-url] · 
-> Github: [@ahmadnassri](https://github.com/ahmadnassri) · 
+
+> License: [ISC][license-url] • 
+> Copyright: [ahmadnassri.com](https://www.ahmadnassri.com) • 
+> Github: [@ahmadnassri](https://github.com/ahmadnassri) • 
 > Twitter: [@ahmadnassri](https://twitter.com/ahmadnassri)
 
 [license-url]: http://choosealicense.com/licenses/isc/
+
 [license-image]: https://img.shields.io/github/license/ahmadnassri/pretty-exceptions.svg?style=flat-square
 
 [npm-url]: https://www.npmjs.com/package/pretty-exceptions
+
 [npm-version]: https://img.shields.io/npm/v/pretty-exceptions.svg?style=flat-square
+
 [npm-downloads]: https://img.shields.io/npm/dm/pretty-exceptions.svg?style=flat-square
 
 [david-url]: https://david-dm.org/ahmadnassri/pretty-exceptions
+
 [david-image]: https://img.shields.io/david/ahmadnassri/pretty-exceptions.svg?style=flat-square
 
 [dependencyci-url]: https://dependencyci.com/github/ahmadnassri/pretty-exceptions
+
 [dependencyci-image]: https://dependencyci.com/github/ahmadnassri/pretty-exceptions/badge?style=flat-square
 
 [node-path]: https://nodejs.org/docs/latest/api/modules.html#modules_loading_from_the_global_folders
+
 [node-require]: https://nodejs.org/api/cli.html#cli_r_require_module
