@@ -11,5 +11,5 @@ test('native', assert => {
 
   const found = render(new Error('foo'), { native, source, color })
 
-  assert.match(found, /internal\/modules\/cjs\/loader\.js/)
+  assert.match(found, /Module._compile/)
 })
