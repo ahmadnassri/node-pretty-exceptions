@@ -3,10 +3,10 @@
   "name": "pretty-exceptions",
   "description": "Pretty and more helpful uncaught exceptions, automatically.",
   "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
-  "homepage": "https://github.com/ahmadnassri/pretty-exceptions",
+  "homepage": "https://github.com/ahmadnassri/node-pretty-exceptions",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ahmadnassri/pretty-exceptions.git"
+    "url": "https://github.com/ahmadnassri/node-pretty-exceptions.git"
   },
   "license": "ISC",
   "main": "index.js",
@@ -27,14 +27,12 @@
     "source-native.js"
   ],
   "bugs": {
-    "url": "https://github.com/ahmadnassri/pretty-exceptions/issues"
+    "url": "https://github.com/ahmadnassri/node-pretty-exceptions/issues"
   },
   "scripts": {
-    "pretest": "npm run test:codeclimate",
-    "test": "npm run test:tap",
-    "test:codeclimate": ".scripts/codeclimate analyze",
-    "test:tap": "tap test --coverage-report=lcov --no-browser",
-    "coverage": "opener coverage/lcov-report/index.html"
+    "test": "tap test --no-coverage",
+    "test:watch": "tap test --watch",
+    "test:ci": "tap test --100 --color --coverage-report=lcov --no-browser"
   },
   "dependencies": {
     "chalk": "^2.3.2",

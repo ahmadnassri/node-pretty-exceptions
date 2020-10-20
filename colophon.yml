@@ -1,0 +1,8 @@
+version: 2.0
+
+id: pretty-exceptions
+
+about:
+  title: Pretty Exceptions
+  description: Pretty and more helpful uncaught exceptions, automatically.
+  repository: ahmadnassri/node-pretty-exceptions
