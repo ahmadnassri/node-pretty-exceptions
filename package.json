@@ -35,7 +35,7 @@
     "test:ci": "tap test --100 --color --coverage-report=lcov --no-browser"
   },
   "dependencies": {
-    "chalk": "^2.3.2",
+    "chalk": "^4.1.0",
     "error-stack-parser": "^2.0.1",
     "strip-ansi": "^5.0.0"
   },
