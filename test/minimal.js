@@ -10,5 +10,5 @@ test('minimal', assert => {
 
   const found = render(new Error('foo'), { native, source, color })
 
-  assert.match(found, /test\/minimal\.js/)
+  assert.match(found, /minimal\.js/)
 })
