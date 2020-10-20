@@ -4,6 +4,8 @@ on: [ push, pull_request ]
 
 jobs:
   deduplicate:
+    timeout-minutes: 5
+
     runs-on: ubuntu-latest
 
     # run on external PRs, but on internal PRs as they'll be run by the push to the branch.
@@ -13,9 +15,9 @@ jobs:
       - run: echo "this is fine 🔥"
 
   lint:
-    needs: deduplicate
-
     timeout-minutes: 5
+
+    needs: deduplicate
 
     runs-on: ubuntu-latest
 
