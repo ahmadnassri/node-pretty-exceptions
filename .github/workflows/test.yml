@@ -6,7 +6,18 @@ env:
   NODE_ENV: test
 
 jobs:
+  deduplicate:
+    runs-on: ubuntu-latest
+
+    # run on external PRs, but on internal PRs as they'll be run by the push to the branch.
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
+
+    steps:
+      - run: echo "this is fine 🔥"
+
   audit:
+    needs: deduplicate
+
     runs-on: ubuntu-latest
 
     steps:
