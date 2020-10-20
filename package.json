@@ -42,6 +42,6 @@
     "strip-ansi": "^5.0.0"
   },
   "devDependencies": {
-    "tap": "^12.0.0"
+    "tap": "^14.10.8"
   }
 }
