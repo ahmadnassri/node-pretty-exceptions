@@ -9,6 +9,8 @@ env:
 
 jobs:
   audit:
+    timeout-minutes: 5
+
     runs-on: ubuntu-latest
 
     steps:
@@ -17,6 +19,8 @@ jobs:
       - run: npm audit --audit-level=moderate
 
   test:
+    timeout-minutes: 5
+
     needs: audit
 
     strategy:
@@ -41,8 +45,12 @@ jobs:
       - run: npm run test:ci
 
   release:
+    timeout-minutes: 5
+
     needs: test
+
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
       - uses: ahmadnassri/action-semantic-release@v1
