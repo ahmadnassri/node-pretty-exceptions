@@ -10,6 +10,7 @@ x-node: &node
   command: npm run test
 
 services:
+  # ---- super-linter ---- #
   lint:
     image: github/super-linter:v3
     volumes:
@@ -18,6 +19,7 @@ services:
       RUN_LOCAL: 'true'
       MULTI_STATUS: 'false'
 
+  # ---- readme generator ---- #
   readme:
     image: pandoc/core
     volumes:
