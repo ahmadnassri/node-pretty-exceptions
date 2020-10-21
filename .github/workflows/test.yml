@@ -27,7 +27,7 @@ jobs:
     steps:
       - uses: actions/setup-node@v2.1.2
       - uses: actions/checkout@v2
-      - run: npm audit --audit-level=moderate
+      - run: npm audit --audit-level=critical
 
   test:
     timeout-minutes: 5
