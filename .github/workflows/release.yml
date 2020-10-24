@@ -39,6 +39,7 @@ jobs:
     if: needs.release.outputs.published == 'true'
 
     steps:
-      run: |
-        npm version --no-git-tag-version v${{ needs.release.outputs.version }}
-        npm publish --registry=https://npm.pkg.github.com
+      - name: publish to github registry
+        run: |
+          npm version --no-git-tag-version v${{ needs.release.outputs.version }}
+          npm publish --registry=https://npm.pkg.github.com
