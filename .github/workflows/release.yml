@@ -37,11 +37,14 @@ jobs:
     if: needs.release.outputs.published == 'true'
 
     env:
-      NPM_TOKEN: ${{ secrets.GH_TOKEN }}
+      NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
 
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.1.2
+        with:
+          registry-url: https://npm.pkg.github.com
       - name: publish to github registry
         run: |
           npm version --no-git-tag-version v${{ needs.release.outputs.version }}
-          npm publish --registry=https://npm.pkg.github.com
+          npm publish
