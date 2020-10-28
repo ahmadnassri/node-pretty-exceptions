@@ -3,10 +3,10 @@
 Pretty and more helpful uncaught exceptions, automatically.
 
 [![license][license-img]][license-url]
-[![version][npm-img]][npm-url]
+[![release][release-img]][release-url]
 [![super linter][super-linter-img]][super-linter-url]
 [![test][test-img]][test-url]
-[![release][release-img]][release-url]
+[![semantic][semantic-img]][semantic-url]
 
 ![](./screenshots/example.png)
 
@@ -38,12 +38,9 @@ const output = pretty(new Error('foo'), options)
 
 ### CLI *(preferred)*
 
-This is the preferred approach to best avoid mistakingly including into
-production builds
+This is the preferred approach to best avoid mistakingly including into production builds
 
-1.  setup your
-    [`NODE_PATH`](https://nodejs.org/docs/latest/api/modules.html#modules_loading_from_the_global_folders)
-    environment variable
+1.  setup your [`NODE_PATH`](https://nodejs.org/docs/latest/api/modules.html#modules_loading_from_the_global_folders) environment variable
     
     ``` shell
     export NODE_PATH="$NODE_PATH:$(npm root -g)"
@@ -55,9 +52,7 @@ production builds
     npm install --global pretty-exceptions
     ```
 
-3.  run your application with the
-    [`--require`](https://nodejs.org/api/cli.html#cli_r_require_module)
-    flag:
+3.  run your application with the [`--require`](https://nodejs.org/api/cli.html#cli_r_require_module) flag:
     
     ``` shell
     node --require pretty-exceptions my-app.js
@@ -78,8 +73,7 @@ alias node-ex='node --require pretty-exceptions'
 alias node='node --require pretty-exceptions/source'
 ```
 
-> To make this persistent, you need to add this into your `~/.bashrc`
-> *(or `~/.bash_profile`)*.
+> To make this persistent, you need to add this into your `~/.bashrc` *(or `~/.bash_profile`)*.
 
 #### Environment Variables
 
@@ -268,8 +262,8 @@ Error: oh no! this is an error message!
 [license-url]: LICENSE
 [license-img]: https://badgen.net/github/license/ahmadnassri/node-pretty-exceptions
 
-[npm-url]: https://www.npmjs.com/package/pretty-exceptions
-[npm-img]: https://badgen.net/npm/v/pretty-exceptions
+[release-url]: https://github.com/ahmadnassri/node-pretty-exceptions/releases
+[release-img]: https://badgen.net/github/release/ahmadnassri/node-pretty-exceptions
 
 [super-linter-url]: https://github.com/ahmadnassri/node-pretty-exceptions/actions?query=workflow%3Asuper-linter
 [super-linter-img]: https://github.com/ahmadnassri/node-pretty-exceptions/workflows/super-linter/badge.svg
@@ -277,5 +271,5 @@ Error: oh no! this is an error message!
 [test-url]: https://github.com/ahmadnassri/node-pretty-exceptions/actions?query=workflow%3Atest
 [test-img]: https://github.com/ahmadnassri/node-pretty-exceptions/workflows/test/badge.svg
 
-[release-url]: https://github.com/ahmadnassri/node-pretty-exceptions/actions?query=workflow%3Arelease
-[release-img]: https://github.com/ahmadnassri/node-pretty-exceptions/workflows/release/badge.svg
+[semantic-url]: https://github.com/ahmadnassri/node-pretty-exceptions/actions?query=workflow%3Arelease
+[semantic-img]: https://badgen.net/badge/📦/semantically%20released/blue
