@@ -46,10 +46,10 @@ services:
     <<: *node
     image: node:12-alpine
 
-  node13:
-    <<: *node
-    image: node:13-alpine
-
   node14:
     <<: *node
     image: node:14-alpine
+
+  node15:
+    <<: *node
+    image: node:15-alpine
