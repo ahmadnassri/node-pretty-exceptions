@@ -39,8 +39,8 @@ services:
     image: node:alpine
     depends_on:
       - node12
-      - node13
       - node14
+      - node15
 
   node12:
     <<: *node
