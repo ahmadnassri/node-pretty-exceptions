@@ -20,6 +20,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: true
+
       - id: release
         uses: ahmadnassri/action-semantic-release@v1
         env:
@@ -37,6 +40,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: true
+
       - name: publish to github registry
         run: |
           jq '.name = "@'${GITHUB_REPOSITORY/node-/}'"' package.json > /tmp/package.json; mv /tmp/package.json .
