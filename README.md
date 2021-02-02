@@ -30,7 +30,7 @@ const output = pretty(new Error('foo'), options)
 #### `options`
 
 | name       | type      | required | default         | description                              |
-| ---------- | --------- | -------- | --------------- | ---------------------------------------- |
+|------------|-----------|----------|-----------------|------------------------------------------|
 | **source** | `Boolean` | ✖        | `false`         | Show source code in stack                |
 | **native** | `Boolean` | ✖        | `false`         | Show native code in stack                |
 | **color**  | `Boolean` | ✖        | `true`          | use ansi colors                          |
@@ -41,22 +41,22 @@ const output = pretty(new Error('foo'), options)
 This is the preferred approach to best avoid mistakingly including into production builds
 
 1.  setup your [`NODE_PATH`](https://nodejs.org/docs/latest/api/modules.html#modules_loading_from_the_global_folders) environment variable
-    
+
     ``` shell
     export NODE_PATH="$NODE_PATH:$(npm root -g)"
     ```
 
 2.  install `pretty-exceptions`
-    
+
     ``` shell
     npm install --global pretty-exceptions
     ```
 
 3.  run your application with the [`--require`](https://nodejs.org/api/cli.html#cli_r_require_module) flag:
-    
+
     ``` shell
     node --require pretty-exceptions my-app.js
-    
+
     # alternative modes (see below):
     node --require pretty-exceptions/source my-app.js
     ```
@@ -78,12 +78,12 @@ alias node='node --require pretty-exceptions/source'
 #### Environment Variables
 
 | env                        | default | description               |
-| -------------------------- | ------- | ------------------------- |
+|----------------------------|---------|---------------------------|
 | `PRETTY_EXCEPTIONS_SOURCE` | `0`     | Show source code in stack |
 | `PRETTY_EXCEPTIONS_NATIVE` | `0`     | Show native code in stack |
 | `PRETTY_EXCEPTIONS_COLOR`  | `1`     | use ansi colors           |
 
-### Source *(if you really must\!)*
+### Source *(if you really must!)*
 
 Require at the top-most entry point of your app:
 
