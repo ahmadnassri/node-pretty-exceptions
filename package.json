@@ -8,7 +8,7 @@
     "type": "git",
     "url": "https://github.com/ahmadnassri/node-pretty-exceptions.git"
   },
-  "license": "ISC",
+  "license": "MIT",
   "main": "index.js",
   "keywords": [
     "pretty",
