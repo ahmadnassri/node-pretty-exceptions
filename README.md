@@ -8,7 +8,7 @@ Pretty and more helpful uncaught exceptions, automatically.
 [![test][test-img]][test-url]
 [![semantic][semantic-img]][semantic-url]
 
-![](./screenshots/example.png)
+![][1]
 
 ## Usage
 
@@ -40,7 +40,7 @@ const output = pretty(new Error('foo'), options)
 
 This is the preferred approach to best avoid mistakingly including into production builds
 
-1.  setup your [`NODE_PATH`](https://nodejs.org/docs/latest/api/modules.html#modules_loading_from_the_global_folders) environment variable
+1.  setup your [`NODE_PATH`][] environment variable
 
     ``` shell
     export NODE_PATH="$NODE_PATH:$(npm root -g)"
@@ -52,7 +52,7 @@ This is the preferred approach to best avoid mistakingly including into producti
     npm install --global pretty-exceptions
     ```
 
-3.  run your application with the [`--require`](https://nodejs.org/api/cli.html#cli_r_require_module) flag:
+3.  run your application with the [`--require`][] flag:
 
     ``` shell
     node --require pretty-exceptions my-app.js
@@ -118,7 +118,7 @@ Error: oh no! this is an error message!
 
 > Colors will vary based on your local terminal configuration
 
-![](./screenshots/default.png)
+![][2]
 
 ### View Source
 
@@ -159,7 +159,7 @@ Error: oh no! this is an error message!
 
 > Colors will vary based on your local terminal configuration
 
-![](./screenshots/source.png)
+![][3]
 
 ### View Native Calls
 
@@ -198,7 +198,7 @@ Error: oh no! this is an error message!
 
 > Colors will vary based on your local terminal configuration
 
-![](./screenshots/native.png)
+![][4]
 
 ### View Source & Native
 
@@ -253,7 +253,15 @@ Error: oh no! this is an error message!
 
 > Colors will vary based on your local terminal configuration
 
-![](./screenshots/source-native.png)
+![][5]
+
+  [1]: ./screenshots/example.png
+  [`NODE_PATH`]: https://nodejs.org/docs/latest/api/modules.html#modules_loading_from_the_global_folders
+  [`--require`]: https://nodejs.org/api/cli.html#cli_r_require_module
+  [2]: ./screenshots/default.png
+  [3]: ./screenshots/source.png
+  [4]: ./screenshots/native.png
+  [5]: ./screenshots/source-native.png
 
 ----
 > Author: [Ahmad Nassri](https://www.ahmadnassri.com/) &bull;
