@@ -40,6 +40,6 @@
     "strip-ansi": "^6.0.0"
   },
   "devDependencies": {
-    "tap": "^14.10.8"
+    "tap": "^15.0.1"
   }
 }
