@@ -42,7 +42,7 @@
   "dependencies": {
     "chalk": "^4.1.0",
     "error-stack-parser": "^2.0.1",
-    "strip-ansi": "^6.0.0"
+    "strip-ansi": "^7.0.1"
   },
   "devDependencies": {
     "tap": "^15.0.10"
