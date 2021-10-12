@@ -8,8 +8,14 @@
     "type": "git",
     "url": "https://github.com/ahmadnassri/node-pretty-exceptions.git"
   },
+  "bugs": {
+    "url": "https://github.com/ahmadnassri/node-pretty-exceptions/issues"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/ahmadnassri"
+  },
   "license": "MIT",
-  "main": "index.js",
   "keywords": [
     "pretty",
     "exception",
@@ -26,13 +32,12 @@
     "native.js",
     "source-native.js"
   ],
-  "bugs": {
-    "url": "https://github.com/ahmadnassri/node-pretty-exceptions/issues"
-  },
+  "main": "index.js",
   "scripts": {
     "test": "tap test --no-coverage",
     "test:watch": "tap test --watch",
-    "test:ci": "tap test --100 --color --coverage-report=lcov --no-browser"
+    "test:ci": "tap test --100",
+    "test:report": "opener coverage/lcov-report/index.html"
   },
   "dependencies": {
     "chalk": "^4.1.0",
@@ -40,6 +45,6 @@
     "strip-ansi": "^6.0.0"
   },
   "devDependencies": {
-    "tap": "^14.10.8"
+    "tap": "^15.0.10"
   }
 }
