@@ -4,8 +4,6 @@ Pretty and more helpful uncaught exceptions, automatically.
 
 [![license][license-img]][license-url]
 [![release][release-img]][release-url]
-[![super linter][super-linter-img]][super-linter-url]
-[![test][test-img]][test-url]
 [![semantic][semantic-img]][semantic-url]
 
 ![][1]
@@ -272,12 +270,6 @@ Error: oh no! this is an error message!
 
 [release-url]: https://github.com/ahmadnassri/node-pretty-exceptions/releases
 [release-img]: https://badgen.net/github/release/ahmadnassri/node-pretty-exceptions
-
-[super-linter-url]: https://github.com/ahmadnassri/node-pretty-exceptions/actions?query=workflow%3Asuper-linter
-[super-linter-img]: https://github.com/ahmadnassri/node-pretty-exceptions/workflows/super-linter/badge.svg
-
-[test-url]: https://github.com/ahmadnassri/node-pretty-exceptions/actions?query=workflow%3Atest
-[test-img]: https://github.com/ahmadnassri/node-pretty-exceptions/workflows/test/badge.svg
 
 [semantic-url]: https://github.com/ahmadnassri/node-pretty-exceptions/actions?query=workflow%3Arelease
 [semantic-img]: https://badgen.net/badge/📦/semantically%20released/blue
