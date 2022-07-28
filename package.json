@@ -23,7 +23,7 @@
     "error"
   ],
   "engines": {
-    "node": ">=6"
+    "node": ">=14"
   },
   "files": [
     "lib",
