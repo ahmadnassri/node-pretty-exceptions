@@ -84,7 +84,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3.5.3
 
-      - uses: ahmadnassri/action-dotenv@v1.0.2
+      - uses: ahmadnassri/action-dotenv@v1.0.3
 
       - uses: actions/setup-node@v3.7.0
         with:
@@ -126,7 +126,7 @@ jobs:
         with:
           submodules: true
 
-      - uses: ahmadnassri/action-dotenv@v1.0.2
+      - uses: ahmadnassri/action-dotenv@v1.0.3
 
       - uses: actions/setup-node@v3.7.0
         with:
